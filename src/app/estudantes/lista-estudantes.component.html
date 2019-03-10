@@ -1,0 +1,21 @@
+<div class="row justify-content-center">
+    <h1>{{ title }}</h1>
+    <table class="table" *ngIf="estudantes && estudantes.length">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Imagem</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Sexo</th>
+                <th scope="col">Planeta</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let estudante of estudantes">
+                <th scope="row">{{ estudante.url }}</th>
+                <td>{{ estudante.nome }}</td>
+                <td>{{ estudante.sexo }}</td>
+                <td>{{ estudante.planeta }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
