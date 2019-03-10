@@ -13,7 +13,7 @@
             <tr *ngFor="let estudante of estudantes">
                 <th scope="row">{{ estudante.url }}</th>
                 <td>{{ estudante.nome }}</td>
-                <td>{{ estudante.sexo }}</td>
+                <td>{{ estudante.sexo | titlecase}}</td>
                 <td>{{ estudante.planeta }}</td>
             </tr>
         </tbody>
