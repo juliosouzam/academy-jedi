@@ -1,9 +1,21 @@
 <div class="row justify-content-center">
-    <h1>{{ title }}</h1>
+    <div class="col-6">
+        <h1>{{ title }}</h1>
+    </div>
+    <div class="col-6">
+        <h3>Filtrar por:</h3>
+        <input type="text" name="" [(ngModel)]="filterList" class="form-control">
+        <p>Filtrado por: {{ filterList }}</p>
+    </div>
     <table class="table" *ngIf="estudantes && estudantes.length">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">Imagem</th>
+                <th scope="col">
+                    <button class="btn btn-info"
+                        (click)='alterImage()'>
+                        {{ showImage ? 'Esconder' : 'Exibir' }} Imagem
+                    </button>
+                </th>
                 <th scope="col">Nome</th>
                 <th scope="col">Sexo</th>
                 <th scope="col">Planeta</th>
@@ -11,7 +23,12 @@
         </thead>
         <tbody>
             <tr *ngFor="let estudante of estudantes">
-                <th scope="row">{{ estudante.url }}</th>
+                <th scope="row">
+                    <img *ngIf="showImage" [src]="estudante.url"
+                        [alt]="estudante.nome"
+                        [style.width.px]="larguraImagem"
+                        [style.margin.px]="margenImagem">
+                </th>
                 <td>{{ estudante.nome }}</td>
                 <td>{{ estudante.sexo | titlecase}}</td>
                 <td>{{ estudante.planeta }}</td>

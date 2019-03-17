@@ -6,7 +6,11 @@ import { Component } from '@angular/core';
 })
 export class EstudantesComponent {
   count: number = 0;
+  showImage: boolean = true;
+  filterList: string = 'Anakin';
   title = 'Lista Estudantes';
+  larguraImagem = '100';
+  margenImagem = '2';
   estudantes: any[] = [
     {
         "id": 1,
@@ -237,4 +241,8 @@ export class EstudantesComponent {
         "url": "./assets/imagens/palpatine.jpg"
     }
 ];
+
+    alterImage() : void {
+        this.showImage = !this.showImage;    
+    }
 }
