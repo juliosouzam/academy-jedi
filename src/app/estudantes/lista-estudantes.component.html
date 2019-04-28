@@ -22,7 +22,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let estudante of estudantes">
+            <tr *ngFor="let estudante of estudantesFiltrados">
                 <th scope="row">
                     <img *ngIf="showImage" [src]="estudante.url"
                         [alt]="estudante.nome"
@@ -30,7 +30,7 @@
                         [style.margin.px]="margenImagem">
                 </th>
                 <td>{{ estudante.nome }}</td>
-                <td>{{ estudante.sexo | titlecase}}</td>
+                <td>{{ estudante.sexo | titlecase | sex }}</td>
                 <td>{{ estudante.planeta }}</td>
             </tr>
         </tbody>

@@ -5,11 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EstudantesComponent } from './estudantes/lista-estudantes.component';
+import { SexPipe } from './shared/sex.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EstudantesComponent
+    EstudantesComponent,
+    SexPipe
   ],
   imports: [
     BrowserModule,
