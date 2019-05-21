@@ -13,6 +13,7 @@ export class EstudantesComponent {
     title: string = 'Lista Estudantes';
     larguraImagem: number = 100;
     margenImagem: number = 2;
+    messageErro: string = '';
     _filterList: string;
     get filterList() : string {
         return this._filterList;
@@ -32,8 +33,13 @@ export class EstudantesComponent {
 
     ngOnInit(): void
     {
-        this.estudantes = this.estudentSevice.estudentList();
-        this.estudantesFiltrados = this.estudantes;
+      this.estudentSevice.estudentList().subscribe(
+        students => {
+          this.estudantes = students;
+          this.estudantesFiltrados = this.estudantes;
+        },
+        error => this.messageErro = <any>error
+      );
     }
 
     alterImage() : void
