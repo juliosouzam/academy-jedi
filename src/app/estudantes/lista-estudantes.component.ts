@@ -33,7 +33,7 @@ export class EstudantesComponent {
 
     ngOnInit(): void
     {
-      this.estudentSevice.estudentList().subscribe(
+      this.estudentSevice.studentList().subscribe(
         students => {
           this.estudantes = students;
           this.estudantesFiltrados = this.estudantes;

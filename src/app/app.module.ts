@@ -10,12 +10,15 @@ import { EstudantesComponent } from './estudantes/lista-estudantes.component';
 import { SexPipe } from './shared/sex.pipe';
 import { EstudanteDetailComponent } from './estudantes/estudante-detail.component';
 import { WelcomeComponent } from './home/welcome.component';
+import { UcfirstPipe } from './shared/ucfirst.pipe';
+import { StudentDetailGuard } from './estudantes/student-detail.guard';
 
 @NgModule({
     declarations: [
         AppComponent,
         EstudantesComponent,
         SexPipe,
+        UcfirstPipe,
         EstudanteDetailComponent,
         WelcomeComponent
     ],
@@ -26,7 +29,7 @@ import { WelcomeComponent } from './home/welcome.component';
         HttpClientModule,
         RouterModule.forRoot([
             { path: 'students', component: EstudantesComponent },
-            { path: 'students/:id', component: EstudanteDetailComponent },
+            { path: 'students/:id', canActivate: [StudentDetailGuard], component: EstudanteDetailComponent },
             { path: 'welcome', component: WelcomeComponent },
             { path: '', redirectTo: 'welcome', pathMatch: 'full'},
             { path: '**', redirectTo: 'welcome', pathMatch: 'full'}

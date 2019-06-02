@@ -29,7 +29,11 @@
                         [style.width.px]="larguraImagem"
                         [style.margin.px]="margenImagem">
                 </th>
-                <td>{{ estudante.nome }}</td>
+                <td>
+                    <a [routerLink]="['/students/', estudante.id]">
+                        {{ estudante.nome }}
+                    </a>
+                </td>
                 <td>{{ estudante.sexo | titlecase | sex }}</td>
                 <td>{{ estudante.planeta }}</td>
             </tr>

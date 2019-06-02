@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import { IEstudante } from './IEstudante';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, tap, map } from 'rxjs/operators';
 
 @Injectable({
     'providedIn' : 'root'
@@ -13,10 +13,17 @@ export class EstudanteService
 
     constructor(private http: HttpClient) {}
 
-    estudentList() : Observable<IEstudante[]> {
+    studentList() : Observable<IEstudante[]> {
         return this.http.get<IEstudante[]>(this.studentUrl).pipe(
             tap(data => console.log('All ' + JSON.stringify(data))),
             catchError(this.trataErro)
+        );
+    }
+
+    student(id: number): Observable<IEstudante | undefined>
+    {
+        return this.studentList().pipe(
+            map((students: IEstudante[]) => students.find(p => p.id === id))
         );
     }
 

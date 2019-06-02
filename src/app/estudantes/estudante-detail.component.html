@@ -1,5 +1,79 @@
-<div class="card">
+<div class="card" *ngIf="student">
     <div class="card-header">
         {{ titlePage + ': ' + student?.nome}}
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-4">
+                <img [src]="student.url"
+                [style.width.px]="widthImage">
+            </div>
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="">
+                                <b>Nome:</b>
+                            </label>
+                            <p>{{ student.nome }}</p>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <label for="">
+                            <b>Altura:</b>
+                        </label>
+                        <p>{{ student.altura }}cm</p>
+                    </div>
+                    <div class="col-4">
+                        <label for="">
+                            <b>Peso:</b>
+                        </label>
+                        <p>{{ student.peso }}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-4">
+                        <label for="">
+                            <b>Cor Cabelo:</b>
+                        </label>
+                        <p>{{ student.corCabelo | ucfirst }}</p>
+                    </div>
+                    <div class="col-4">
+                        <label for="">
+                            <b>Cor Olhos:</b>
+                        </label>
+                        <p>{{ student.corOlhos | ucfirst }}</p>
+                    </div>
+                    <div class="col-4">
+                        <label for="">
+                            <b>Ano Nascimento:</b>
+                        </label>
+                        <p>{{ student.anoNascimento }}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-4">
+                        <label for="">
+                            <b>Sexo:</b>
+                        </label>
+                        <p>{{ student.sexo | ucfirst }}</p>
+                    </div>
+                    <div class="col-4">
+                        <label for="">
+                            <b>Planeta:</b>
+                        </label>
+                        <p>{{ student.planeta }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer text-right">
+        <button class="btn btn-secondary" (click)="onVoltar()">
+            <i class="fa fa-chevron-left"></i>
+            Voltar
+        </button>
     </div>
 </div>
