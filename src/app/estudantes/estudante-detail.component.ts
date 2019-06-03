@@ -31,7 +31,7 @@ export class EstudanteDetailComponent implements OnInit {
         );
     }
 
-    onVoltar() : void
+    onBack() : void
     {
         this.router.navigate(['/students']);
     }
